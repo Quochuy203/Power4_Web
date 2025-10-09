@@ -9,17 +9,32 @@
     <title>Connect 4 Web - Start Game &#129327; </title>
 </head>
 <body>
-    <h1>Choisir le niveau du jeux</h1>
-    <form action=""></form>
-    <label>
-        <input type="button" name="difficulty" value="easy" checked> Easy (6x7)
+    <div class="header-container">
+        <h1>Connect - 4</h1>
+        <h2>Choose Game Mode</h2>
+    <form action="/players" method="post">
+        <label>
+            <input type="button" name="difficulty" value="1 VS 1" checked>
 
     </label><br>
     <label>
-        <input type="button" name="difficulty" value="normal"> Normal (6x9)
+        <input type="button" name="difficulty" value=" VS Robot"> 
     </label><br>
-    <label>
-        <input type="button" name="difficulty" value="hard"> hard (7x8)
-    </label><br></br>
+        <button class="play-button" type="submit"></button>
+    </form>
+    </div>
+</body>
+</html>
+<body class="welcome-page">
+    <div class="header-container">
+        <h2 class="welcome-text"> Welcome in the game </h1>
+        <h1 class="connect4">CONNECT - 4</h1>
+    <form action="/mode" method="post">
+        <button class="play-button" type="submit"> 
+            <span class="play-icon">Play </span>
+            Play 
+        </button>
+    </form>
+    </div>
 </body>
 </html>

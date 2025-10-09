@@ -29,8 +29,8 @@ body{
     box-shadow: 0 6px 0 #5cd5, inset 0 2px 0 rgba(255 , 255, 255, 0.4);
 }*/
 .welcome-page {
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(0, 0, 0);
+    color: rgb(144, 31, 31);
     text-align: center;
     min-height: 100vh;
     display: flex;
@@ -38,22 +38,31 @@ body{
     justify-content: center;
 }
 .welcome-text{
+    position: relative;
+    top: -200px;
     font-size: 7em;
-    color: rgba(157, 47, 47, 0.818);
-    margin-bottom: 5px;
+    color: #9d2f2fd1;
+    margin-bottom: 50px;
+    text-shadow: 4px 4px 0 #1d4582;
+    text-align: center;
 }
 
 .Connect4-title{
-    font-size: 10vw;
+    font-size: 50px;
     width: 50vw;
     margin: 0 auto 50px auto;
-    color: #475786;
-    text-shadow: 4px 4px 0 #1d4582, -4px -4px 0 #ffff;
+    color: #6f80bc;
+    text-shadow: 4px 4px 0 #1d4582, -4px -4px 0;
 }
 .play-button{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 80%;
-    max-width: 1000px;
+    max-width: 200px;
+    border-radius: 50px;
+}
+.play-button:hover{
+    transform: translateY(2px);
+    box-shadow: 0 6px 0 #5cd5, inset 0 2px 0 rgba(255 , 255, 255, 0.4);
 }
