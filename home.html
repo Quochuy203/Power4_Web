@@ -4,15 +4,21 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximim-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui">
     <meta name="Connect 4" content>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/home.css">
 
     <title>Connect4 | Game </title>
     <meta property>
 </head>
-<body>
-    <h1>Welcome in the game | Connect 4</h1>
-    <form action="templates/start.html" method="POST"></form>
-    <button type="submit"> Play </button>
-    
+<body class="welcome-page">
+    <div class="header-container">
+        <h2 class="welcome-text"> Welcome in the game </h1>
+        <h1 class="Connect4">CONNECT-4</h1>
+    <form action="/mode" method="POST">
+        <button class="play-button" type="submit"> 
+            <span class="play-icon"></span>
+            Play 
+        </button>
+    </form>
+    </div>
 </body>
 </html>
