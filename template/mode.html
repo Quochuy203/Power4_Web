@@ -8,33 +8,28 @@
 
     <title>Connect 4 Web - Start Game &#129327; </title>
 </head>
-<body>
-    <div class="header-container">
-        <h1>Connect - 4</h1>
-        <h2>Choose Game Mode</h2>
-    <form action="/players" method="post">
-        <label>
-            <input type="button" name="difficulty" value="1 VS 1" checked>
+<body class="mode-page">
+    <div class="mode-options">
+        <h2 class="mode-titre">Choose Game Mode</h2>
 
-    </label><br>
-    <label>
-        <input type="button" name="difficulty" value=" VS Robot"> 
-    </label><br>
-        <button class="play-button" type="submit"></button>
-    </form>
-    </div>
-</body>
-</html>
-<body class="welcome-page">
-    <div class="header-container">
-        <h2 class="welcome-text"> Welcome in the game </h1>
-        <h1 class="connect4">CONNECT - 4</h1>
-    <form action="/mode" method="post">
-        <button class="play-button" type="submit"> 
-            <span class="play-icon">Play </span>
-            Play 
-        </button>
-    </form>
+            <form action="/players" method="post">
+            <button class="mode-card" type="submit">
+                <div class="card-content">
+                    <span class="icon">👤 VS 🤖</span>
+                    <span class="label">Player VS Robot</span>
+                </div>
+            </button>
+            </form>
+        
+        <form action="/start" method="POST">
+                <input type="hidden" name="mode" value="vs_player">
+                <button class="mode-card" type="submit">
+                    <div class="card-content">
+                        <span class="icon">👤 VS 👤</span>
+                        <span class="label">1 VS 1</span>
+                    </div>
+                </button>
+        </form>
     </div>
 </body>
 </html>

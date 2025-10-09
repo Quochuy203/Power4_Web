@@ -1,14 +1,75 @@
-h1{
-    color: bisque;
-    background-color: brown;
+/* Tông màu nền chính */
+.mode-page {
+    /* Màu nền xám nhạt với sọc chéo */
+    background-color: #e0e0e0;
+    background-image: repeating-linear-gradient(-45deg, #f0f0f0, #f0f0f0 10px, #e0e0e0 10px, #e0e0e0 20px);
+    
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
 }
-body{
-    background-color: black;
+
+/* Tiêu đề "CHOOSE GAME MODE" */
+.mode-title {
+    font-size: 4em;
+    color: #007bff; /* Màu xanh dương sáng */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 80px;
     text-align: center;
 }
-.play-button{
-    
+
+/* Bố cục lưới cho các tùy chọn */
+.options-grid {
+    display: flex; /* Dùng flex thay vì grid để căn giữa dễ hơn */
+    gap: 50px; /* Khoảng cách giữa 2 thẻ */
+    justify-content: center;
+    align-items: center;
 }
-.play-button:hover{
+
+/* Thiết kế thẻ tùy chọn (card) */
+.mode-card {
+    background-color: #007bff; /* Màu xanh dương chính */
+    color: white;
+    width: 250px;
+    height: 200px;
+    border: 10px solid white; /* Viền ngoài màu trắng */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Bóng đổ 3D */
+    position: relative;
+    padding: 0; /* Loại bỏ padding mặc định của button */
     
+    /* Thiết lập Flexbox để căn giữa nội dung bên trong */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Nội dung bên trong card */
+.card-content {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.card-content .icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-content .label {
+    font-size: 0.8em;
 }
