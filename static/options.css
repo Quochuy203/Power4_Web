@@ -1,0 +1,86 @@
+/* ==================================== */
+/* 1. ĐỊNH DẠNG CHUNG (BODY VÀ TIÊU ĐỀ) */
+/* ==================================== */
+body {
+    background-color: #f0f0f0; /* Nền xám nhạt */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Đảm bảo nội dung căn giữa toàn màn hình */
+    margin: 0;
+}
+
+h1 {
+    color: #4169e1; /* Màu xanh nổi bật, phù hợp với Connect4 */
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================================== */
+/* 2. CÁC TÙY CHỌN ĐỘ KHÓ (.difficulty-options) */
+/* ==================================== */
+.difficulty-options {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng nổi 3D nhẹ */
+    width: 300px; /* Chiều rộng cố định cho khung tùy chọn */
+}
+
+/* Định dạng cho mỗi dòng tùy chọn (label) */
+.difficulty-options label {
+    display: flex; /* Dùng Flexbox để căn chỉnh input và text */
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Hiệu ứng khi di chuột qua tùy chọn */
+.difficulty-options label:hover {
+    background-color: #e6f0ff; /* Màu xanh nhạt khi hover */
+}
+
+/* Định dạng cho Radio Button */
+.difficulty-options input[type="radio"] {
+    /* Đảm bảo radio button có kích thước dễ bấm và nhìn thấy */
+    width: 20px; 
+    height: 20px;
+    margin-right: 15px;
+    accent-color: #4169e1; /* Đổi màu của radio button (hỗ trợ bởi hầu hết trình duyệt hiện đại) */
+}
+
+/* ==================================== */
+/* 3. NÚT BẮT ĐẦU CHƠI (.start-game-button) */
+/* ==================================== */
+.start-game-button {
+    background-color: #28a745; /* Màu xanh lá cây nổi bật (Start/Go) */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng khi di chuột và nhấn */
+.start-game-button:hover {
+    background-color: #218838;
+}
+
+.start-game-button:active {
+    transform: translateY(2px); /* Tạo hiệu ứng nút được nhấn xuống */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

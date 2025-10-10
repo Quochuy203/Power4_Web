@@ -3,7 +3,7 @@
     /* Màu nền xám nhạt với sọc chéo */
     background-color: #e0e0e0;
     background-image: repeating-linear-gradient(-45deg, #f0f0f0, #f0f0f0 10px, #e0e0e0 10px, #e0e0e0 20px);
-    
+    margin-bottom: 30px;
     min-height: 100vh;
     margin: 0;
     padding: 0;

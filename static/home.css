@@ -59,13 +59,13 @@ body{
     align-items: center;
     margin: auto;
     font-size: 2.8em;
-    width: 10px;
-    color: #6f80bc;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) #1d4582;
+    width: 30px;
+    color: #929f50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) #85a0c8;
 }
-.word, .number{
+/*.word, .number{
     display: inline-block;
-}
+}*/
 .play-button{
     margin: auto;
     display: flex;
@@ -80,7 +80,7 @@ body{
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 10px 20px;
-
+    margin-top: 20px;
 }
 .play-button:hover{
     transform: translateY(2px);
