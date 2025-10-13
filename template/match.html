@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connect 4 - Match</title>
+  <link rel="stylesheet" href="../static/match.css">
+</head>
+<body>
+  <h2>Player {{.CurrentPlayer}}'s Turn</h2>
+
+  <form method="POST" action="/play">
+    <div class="board">
+        <div class="row">
+            <div class="cell {{if eq . 1}}player1{{else if eq . 2}}player2{{end}}"></div>
+        </div>
+    </div>
+
+    <label for="column">Choose column:</label>
+    <select name="column" id="column">
+        <option value="{{.}}">{{.}}</option>
+    </select>
+    <button type="submit">Play</button>
+  </form>
+</body>
+</html>

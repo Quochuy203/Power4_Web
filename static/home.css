@@ -29,44 +29,39 @@ body{
     box-shadow: 0 6px 0 #5cd5, inset 0 2px 0 rgba(255 , 255, 255, 0.4);
 }*/
 .welcome-page {
-    background-color: #556B2F;
+    background-color: #0D1B2A; /* Xanh navy đậm */
     text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*align-items: center;
-    justify-content: center;*/
 }
-.welcome-text{
+
+.welcome-text {
     position: relative;
     top: -2cm;
     margin: auto;
     font-size: 6em;
-   /* color: #9d2f2fd1;
-    margin-bottom: 50px;*/
-    background: linear-gradient(90deg, #8FA31E, #EFF5D2);
+    background: linear-gradient(90deg, #FFB400, #FF6B00); /* Vàng pixel sang cam cháy */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
     text-align: center;
 }
 
-.connect4{
+.connect4 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     font-size: 2.8em;
     width: 30px;
-    color: #929f50;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) #85a0c8;
+    color: #FCA311; /* Vàng pixel */
+    text-shadow: 2px 2px 4px #14213D; /* Xanh đen đậm */
 }
-/*.word, .number{
-    display: inline-block;
-}*/
-.play-button{
+
+.play-button {
     margin: auto;
     display: flex;
     align-items: center;
@@ -76,13 +71,16 @@ body{
     border-radius: 50px;
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular','Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #E85D04; /* Cam cháy */
+    color: #FFFFFF;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 10px 20px;
     margin-top: 20px;
 }
-.play-button:hover{
+
+.play-button:hover {
     transform: translateY(2px);
-    box-shadow: 0 6px 0 #5cd5, inset 0 2px 0 rgba(255 , 255, 255, 0.4);
+    box-shadow: 0 6px 0 #FFB400, inset 0 2px 0 rgba(255, 255, 255, 0.4);
 }

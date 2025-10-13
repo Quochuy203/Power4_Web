@@ -2,42 +2,54 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Connect 4 Web - Chọn Độ Khó</title>
-    <link rel="stylesheet" href="/static/options.css">
-    <style>
-        /* CSS nội bộ để căn chỉnh nhanh */
-        body { text-align: center; font-family: sans-serif; }
-        .difficulty-options { display: inline-block; text-align: left; margin-top: 30px; }
-        .difficulty-options label { display: block; margin: 10px 0; font-size: 1.2em; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/options.css">
+    <title>Connect4 - Difficulté</title>
 </head>
-<body>
-    <h1>Chọn Mức Độ Khó</h1>
+<body class="difficulty-page">
+    <div class="header-container">
+        <h2 class="welcome-text">Choisissez la difficulté 🎮</h2>
+        <h1 class="connect4">CONNECT4</h1>
+    </div>
 
-    <form action="/play" method="POST">
-        
-        <input type="hidden" name="mode" value="{{ .GameMode }}"> 
-        
-        <input type="hidden" name="player1" value="{{ .Player1Name }}">
-        <input type="hidden" name="player2" value="{{ .Player2Name }}">
+    <div class="difficulty-container">
+        <form action="/selectoptions" method="POST" class="difficulty-form">
+ 
+            <!-- Bouton Easy -->
+            <button type="submit" name="difficulty" value="easy" class="difficulty-button easy">
+                <div class="button-icon">🟢</div>
+                <div class="button-content">
+                    <h3>Facile</h3>
+                    <p class="grid-size">Grille 6 x 7</p>
+                    <p class="description">Parfait pour commencer</p>
+                </div>
+            </button>
 
-        <div class="difficulty-options">
-            <label>
-                <input type="radio" name="difficulty" value="6x7" checked> 
-                Dễ (6x7 Grid)
-            </label>
-            <label>
-                <input type="radio" name="difficulty" value="6x9"> 
-                Bình thường (6x9 Grid)
-            </label>
-            <label>
-                <input type="radio" name="difficulty" value="7x8"> 
-                Khó (7x8 Grid)
-            </label>
-        </div>
-        
-        <br><br>
-        <button type="submit" class="start-game-button">BẮT ĐẦU CHƠI</button>
-    </form>
+            <!-- Bouton Normal -->
+            <button type="submit" name="difficulty" value="normal" class="difficulty-button normal">
+                <div class="button-icon">🟡</div>
+                <div class="button-content">
+                    <h3>Normal</h3>
+                    <p class="grid-size">Grille 6 x 9</p>
+                    <p class="description">Un défi équilibré</p>
+                </div>
+            </button>
+
+            <!-- Bouton Hard -->
+            <button type="submit" name="difficulty" value="hard" class="difficulty-button hard">
+                <div class="button-icon">🔴</div>
+                <div class="button-content">
+                    <h3>Difficile</h3>
+                    <p class="grid-size">Grille 7 x 8</p>
+                    <p class="description">Pour les experts</p>
+                </div>
+            </button>
+
+        </form>
+    </div>
+
+    <div class="back-link">
+        <a href="/mode">← Retour</a>
+    </div>
 </body>
 </html>
