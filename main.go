@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 func main() {
@@ -21,13 +22,14 @@ func main() {
 	//http.HandleFunc("/selectoptions", selectoptions)
 	//match
 	http.HandleFunc("/match", matchHandler)
-
+	// Router de xu lu nuoc di cua nguoi choi
+	http.HandleFunc("/play",playMove)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.ListenAndServe(":8080", nil)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	template, erreur := template.ParseFiles("/home.html")
+	template, erreur := template.ParseFiles("home.html")
 	if erreur != nil {
 		log.Fatal(erreur)
 	}
@@ -50,7 +52,7 @@ type GameConflig struct {
 	Rows       int
 	Cols       int
 }
-
+var currentGame Game
 
 
 /*
@@ -192,7 +194,7 @@ func matchHandler(w http.ResponseWriter, r *http.Request) {
 		board[i] = make([]int, gameConflig.Cols)
 	}
 
-	game := Game{
+	currentGame := Game{
 		Board:         board,
 		CurrentPlayer: 1,
 		GameActive:    true,
@@ -209,13 +211,76 @@ func matchHandler(w http.ResponseWriter, r *http.Request) {
 		Board         [][]int
 		CurrentPlayer int
 		ColumnRange   []int
-	}{
-		Board:         game.Board,
-		CurrentPlayer: game.CurrentPlayer,
+	}{ // sua game.Board thanh currentGame.Board
+		Board:         currentGame.Board,
+		CurrentPlayer: currentGame.CurrentPlayer,
 		ColumnRange:   columnRange,
 	}
 
-	tmpl := template.Must(template.ParseFiles("templates/match.html"))
+	tmpl := template.Must(template.ParseFiles("template/match.html"))
 	tmpl.Execute(w, data)
 }
+// Trien khai nuoc di cua Robot
+// Helper functions (Nên đặt trong một file riêng như game_logic.go)
+func checkWin(b [][]int, piece int) bool { /* ... logic kiểm tra thắng ... */
+	 return false }
+func getNextOpenRow(b [][]int, col int) int { /* ... */ 
+	return -1 }
+// ...
 
+func playMove(w http.ResponseWriter, r *http.Request) {
+    if r.Method != "POST" || !currentGame.GameActive {
+        http.Redirect(w, r, "/match", http.StatusSeeOther)
+        return
+    }
+
+    // 1. Xử lý nước đi của Người chơi (Client)
+    r.ParseForm()
+    colStr := r.FormValue("col") // Lấy cột từ form
+    col, err := strconv.Atoi(colStr)
+    if err != nil {
+        http.Redirect(w,r,"/match",http.StatusSeeOther)
+		return
+    }
+    
+    row := getNextOpenRow(currentGame.Board, col)
+
+    if row != -1 {
+        // Thả quân người chơi
+        currentGame.Board[row][col] = currentGame.CurrentPlayer
+        
+        // 2. Kiểm tra thắng
+        if checkWin(currentGame.Board, currentGame.CurrentPlayer) {
+            currentGame.GameActive = false
+            // Có thể thêm logic lưu kết quả và hiển thị thông báo
+        }
+        
+        // 3. Chuyển lượt
+        currentGame.CurrentPlayer = 3 - currentGame.CurrentPlayer // Chuyển từ 1 sang 2 hoặc ngược lại
+    }
+
+    // 4. LƯỢT CỦA ROBOT (nếu GameActive và là chế độ 1vsRobot)
+    if currentGame.GameActive && currentGame.CurrentPlayer == 2 && gameConflig.Mode == "robot" {
+        // Đây là nơi bạn gọi AI
+        
+        // bestCol := getBestMoveAI(currentGame.Board, gameConflig.Difficulty)
+        bestCol := 3 // Tạm thời chọn cột 3
+        
+        aiRow := getNextOpenRow(currentGame.Board, bestCol)
+        if aiRow != -1 {
+            currentGame.Board[aiRow][bestCol] = 2 // Quân của Robot là 2
+            
+            // 5. Kiểm tra thắng của Robot
+            if checkWin(currentGame.Board, 2) {
+                currentGame.GameActive = false
+                // ...
+            }
+            
+            // 6. Chuyển lượt lại cho Người chơi
+            currentGame.CurrentPlayer = 1
+        }
+    }
+    
+    // Chuyển hướng về trang /match để hiển thị trạng thái mới
+    http.Redirect(w, r, "/match", http.StatusSeeOther)
+}

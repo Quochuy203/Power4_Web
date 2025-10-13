@@ -1,43 +1,98 @@
 body {
-  background-color: #f9fafb;
-  font-family: sans-serif;
-  text-align: center;
-  padding: 20px;
+  background-color: #0D1B2A;
+  font-family: 'Arial', sans-serif;
+  color: #DDEEFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-h2 {
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  background-color: #E85D04;
+  border: 3px solid #FFB400;
+  color: white;
   font-size: 24px;
-  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .board {
-  display: inline-block;
-  margin-bottom: 20px;
+  position: relative;
+}
+
+.selector {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.arrow {
+  font-size: 32px;
+  color: #FFB400;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #1B263B;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .row {
   display: flex;
+  gap: 5px;
 }
 
 .cell {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #333;
-  margin: 2px;
+  width: 60px;
+  height: 60px;
+  background-color: #0D1B2A;
   border-radius: 50%;
-  background-color: #e5e7eb;
+  border: 2px solid #FFB400;
 }
 
-.player1 {
-  background-color: red;
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.player2 {
-  background-color: yellow;
+.player-turn {
+  background-color: #FCA311;
+  color: #14213D;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
 }
 
-select, button {
-  font-size: 16px;
-  padding: 8px 12px;
-  margin: 10px;
+.drop-button {
+  background-color: #E85D04;
+  color: white;
+  font-size: 20px;
+  padding: 10px 30px;
+  border: 3px solid #FFB400;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.timer {
+  font-size: 18px;
+  color: #DDEEFF;
 }

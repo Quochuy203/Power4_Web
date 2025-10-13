@@ -17,7 +17,7 @@
 .mode-title {
     font-size: 4em;
     color: #FFB400; /* Vàng pixel */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    text-shadow: 2px 2px 6px rgba(224, 206, 206, 0.545);
     margin-bottom: 80px;
     text-align: center;
 }

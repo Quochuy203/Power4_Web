@@ -2,24 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Connect 4 - Match</title>
-  <link rel="stylesheet" href="../static/match.css">
+  <title>Connect Four</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Player {{.CurrentPlayer}}'s Turn</h2>
-
-  <form method="POST" action="/play">
-    <div class="board">
-        <div class="row">
-            <div class="cell {{if eq . 1}}player1{{else if eq . 2}}player2{{end}}"></div>
-        </div>
+  <div class="game-container">
+    <div class="controls">
+      <button class="icon">🔊</button>
+      <button class="icon">❓</button>
+      <button class="icon">🔄</button>
     </div>
 
-    <label for="column">Choose column:</label>
-    <select name="column" id="column">
-        <option value="{{.}}">{{.}}</option>
-    </select>
-    <button type="submit">Play</button>
-  </form>
+    <div class="board">
+      <div class="selector">
+        <div class="arrow">▼</div>
+      </div>
+      <div class="grid">
+        <!-- 6 rows × 7 columns -->
+        <!-- Each cell will be styled via CSS -->
+        <div class="row">
+          <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        </div>
+        <!-- Repeat .row 6 times -->
+        <!-- You can generate this dynamically later -->
+      </div>
+    </div>
+
+    <div class="status">
+      <button class="player-turn">PLAYER TURN</button>
+      <button class="drop-button">DROP</button>
+      <div class="timer"></div>
+    </div>
+  </div>
 </body>
 </html>
