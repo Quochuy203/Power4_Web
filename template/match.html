@@ -42,9 +42,7 @@
       <form method="post" action="/play">
       <button class="player-turn">PLAYER TURN</button>
       <select name="col" class="column-select">
-        {{range .column-select}}
-        <option value="{{.}}">column {{.}}</option>
-        {{end}}
+        
       </select>
       <button class="drop-button">DROP</button>
       <div class="timer"></div>

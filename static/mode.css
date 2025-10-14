@@ -15,9 +15,12 @@
 
 /* Tiêu đề "CHOOSE GAME MODE" */
 .mode-title {
-    font-size: 4em;
-    color: #FFB400; /* Vàng pixel */
-    text-shadow: 2px 2px 6px rgba(224, 206, 206, 0.545);
+    font-size: 5em;
+    color: #ffb400; /* Vàng pixel */
+     text-shadow:
+      0 0 10px #FFB400,
+      0 0 20px #FFB400,
+      2px 2px 6px rgba(0, 0, 0, 0.6);
     margin-bottom: 80px;
     text-align: center;
 }

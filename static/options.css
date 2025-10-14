@@ -23,13 +23,13 @@ button:hover {
   transform: translateY(-3px);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
 }
-.back-button {
+.back-link {
   position: absolute;
   top: 20px;
   left: 20px;
 }
 
-.back-button a {
+.back-link a {
   display: inline-block;
   background-color: #E85D04; /* Cam cháy */
   color: white;
@@ -42,7 +42,7 @@ button:hover {
   transition: transform 0.2s ease;
 }
 
-.back-button a:hover {
+.back-link a:hover {
   transform: translateY(-2px);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
 }
