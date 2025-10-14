@@ -3,49 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Connect Four</title>
-  <link rel="stylesheet" href="../static/match.css">
+  <link rel="stylesheet" href="/static/match.css">
 </head>
 <body>
   <div class="game-container">
     <div class="controls">
       <button class="icon">🔊</button>
       <button class="icon">❓</button>
-      <button class="icon">🔄</button>
+      <a href="/reset"><button class="icon">🔄</button></a>
     </div>
 
     <div class="board">
-      <div class="selector">
-        <div class="arrow">▼</div>
-      </div>
+      <form method="post" action="/play">
+        <div class="selector">
+          <select name="col" class="column-select">
+            {{range .ColumnRange}}
+              <option value="{{.}}">Column {{.}}</option>
+            {{end}}
+          </select>
+          <button class="drop-button">DROP</button>
+        </div>
+      </form>
+
       <div class="grid">
-        <div class="grid">
-             {{range .Board}}
+        {{range .Board}}
         <div class="row">
-              {{range .}}
-        <div class="cell">
-          {{if eq . 1}}🔴{{else if eq . 2}}🟡{{else}}⚪{{end}}
+          {{range .}}
+          <div class="cell {{if eq . 1}}red{{else if eq . 2}}yellow{{else}}empty{{end}}"></div>
+          {{end}}
         </div>
-           {{end}}
-        </div>
-           {{end}}
-      </div>
-        <!-- Each cell will be styled via CSS -->
-        <div class="row">
-          <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        </div>
-        <!-- Repeat .row 6 times -->
-        <!-- You can generate this dynamically later -->
+        {{end}}
       </div>
     </div>
 
     <div class="status">
-      <form method="post" action="/play">
-      <button class="player-turn">PLAYER TURN</button>
-      <select name="col" class="column-select">
-        
-      </select>
-      <button class="drop-button">DROP</button>
-      <div class="timer"></div>
+      <div class="message">{{.Message}}</div>
+      <div class="turn">Player {{.CurrentPlayer}}'s Turn</div>
     </div>
   </div>
 </body>
