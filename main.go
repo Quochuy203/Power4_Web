@@ -10,7 +10,6 @@ import (
 func main() {
 	//home routeur
 	http.HandleFunc("/", home)
-	// play
 	//http.HandleFunc("/start", start)
 	// Mode de jeux page select 1vs1 ou 1vsrobot
 	http.HandleFunc("/mode", mode)
@@ -18,12 +17,13 @@ func main() {
 	//http.HandleFunc("/players", players)
 	// optionHandler
 	http.HandleFunc("/options", optionHandler)
-	// 
 	//http.HandleFunc("/selectoptions", selectoptions)
 	//match
 	http.HandleFunc("/match", matchHandler)
 	// Router de xu lu nuoc di cua nguoi choi
 	http.HandleFunc("/play",playMove)
+	//
+
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.ListenAndServe(":8080", nil)
 }
@@ -284,3 +284,11 @@ func playMove(w http.ResponseWriter, r *http.Request) {
     // Chuyển hướng về trang /match để hiển thị trạng thái mới
     http.Redirect(w, r, "/match", http.StatusSeeOther)
 }
+// chu y den nuoc co hoà , neu ca 2  nguoi choi deu hao nthanh nuoc di cua ho nhung khong co ai thang thi ca 2 deu hoa 
+
+
+
+
+
+
+//func play(w, http.ResponseWriter, r *Request)
