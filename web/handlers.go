@@ -54,10 +54,10 @@ func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-
 	player1 := r.FormValue("player1")
 	player2 := r.FormValue("player2")
 	difficulty := r.FormValue("difficulty")
+	mode := r.FormValue("mode")
 
 	if player1 == "" || player2 == "" || difficulty == "" {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
@@ -68,6 +68,7 @@ func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 		Player1:    player1,
 		Player2:    player2,
 		Difficulty: difficulty,
+		IsVsBot: (mode =="ai"),
 	}
 
 	tmpl, err := template.ParseFiles("templates/welcome.html")
@@ -87,9 +88,15 @@ func GameHandler(w http.ResponseWriter, r *http.Request) {
 	player1 := r.FormValue("player1")
 	player2 := r.FormValue("player2")
 	difficulty := r.FormValue("difficulty")
+	mode := r.FormValue("mode")
 
 	currentGame = NewGame(player1, player2, difficulty)
 
+	if mode == "ai"{
+		currentGame.IsVsBot = true
+		currentGame.BotLevel = currentGame.Difficulty
+	}
+	
 	tmpl, err := template.ParseFiles("templates/game.html")
 	if err != nil {
 		log.Fatal(err)
@@ -166,6 +173,27 @@ func PlayHandler(w http.ResponseWriter, r *http.Request) {
 		} else {
 			currentGame.CurrentPlayer = 1
 		}
+	}
+// ... après changement de joueur
+	if currentGame.IsVsBot && currentGame.CurrentPlayer == 2 {
+   		botCol := currentGame.ChooseBotMove()
+    	if botCol != -1 {
+      		currentGame.PlaceToken(botCol)
+        	winner := currentGame.CheckWin()
+        	if winner != 0 {
+            	currentGame.Winner = winner
+            	tmpl, _ := template.ParseFiles("templates/win.html")
+            	tmpl.Execute(w, ToGameView(currentGame))
+            	return
+        	}
+        	if currentGame.CheckDraw() {
+            	currentGame.Draw = true
+            	tmpl, _ := template.ParseFiles("templates/draw.html")
+            	tmpl.Execute(w, ToGameView(currentGame))
+            	return
+        	}
+    	}
+    	currentGame.CurrentPlayer = 1
 	}
 
 	// réafficher le plateau si pas de fin

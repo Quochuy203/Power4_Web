@@ -11,7 +11,13 @@
     <form action="/welcome" method="POST" class="form-box">
       <input type="text" name="player1" placeholder="Nom Joueur 1" required>
       <input type="text" name="player2" placeholder="Nom Joueur 2" required>
-
+      <!-- Choix du mode de jeu -->
+      <label for="mode">Mode de jeu</label>
+      <select name="mode" id="mode" required>
+        <option value="pvp">Joueur vs Joueur</option>
+        <option value="ai">joueur vs Robot</option>
+      </select>
+      <!--Choix niveau du jeu -->
       <label for="difficulty">Difficulté :</label>
       <select name="difficulty" id="difficulty" required>
         <option value="easy">Facile (6x7)</option>

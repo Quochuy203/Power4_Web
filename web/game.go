@@ -15,6 +15,8 @@ type Game struct {
 	TurnCount     int      // compteur de tours pour la gravité
 	GravityDown   bool     // true = gravité normale, false = inversée
 	WinningCells  [][2]int // positions des jetons gagnants
+	IsVsBot		  bool
+	BotLevel	  string
 }
 
 // Cell représente une cellule enrichie pour le rendu HTML
