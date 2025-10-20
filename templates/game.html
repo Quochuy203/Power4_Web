@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gravity Connect 4</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gravity Connect 4</h1>
+    <div class="info">
+      <p><b>{{.Player1}}</b> (🔴) vs <b>{{.Player2}}</b> (🟡)</p>
+      <p>Tour de : {{if eq .CurrentPlayer 1}}{{.Player1}}{{else}}{{.Player2}}{{end}}</p>
+      <p>Gravité : {{if .GravityDown}}⬇️ Bas{{else}}⬆️ Haut{{end}}</p>
+    </div>
+
+    <form action="/play" method="POST">
+      <div class="board">
+        {{range $r, $row := .Grid}}
+          <div class="row">
+            {{range $c, $cell := $row}}
+              <button type="submit" name="col" value="{{$c}}" class="cell {{if eq $cell.Value 1}}p1{{else if eq $cell.Value 2}}p2{{end}} {{if $cell.IsWinning}}win{{end}}"></button>
+            {{end}}
+          </div>
+        {{end}}
+      </div>
+    </form>
+  </div>
+</body>
+</html>

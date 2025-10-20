@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Égalité</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🤝 Match nul !</h2>
+    <p>Aucune victoire, bravo à tous les deux.</p>
+    <form action="/rematch" method="POST">
+      <button name="type" value="revanche" class="btn">Revanche 🔁</button>
+      <button name="type" value="new" class="btn">Nouvelle Partie 🆕</button>
+    </form>
+  </div>
+</body>
+</html>

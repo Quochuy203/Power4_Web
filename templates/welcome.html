@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenue</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>👋 Bienvenue {{.Player1}} et {{.Player2}} !</h2>
+    <p>Difficulté : {{.Difficulty}}</p>
+    <form action="/game" method="POST">
+      <input type="hidden" name="player1" value="{{.Player1}}">
+      <input type="hidden" name="player2" value="{{.Player2}}">
+      <input type="hidden" name="difficulty" value="{{.Difficulty}}">
+      <button type="submit" class="btn">Lancer la partie</button>
+    </form>
+  </div>
+</body>
+</html>

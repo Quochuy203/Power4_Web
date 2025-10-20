@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gravity Connect 4 - Start</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎮 Gravity Connect 4</h1>
+    <form action="/welcome" method="POST" class="form-box">
+      <input type="text" name="player1" placeholder="Nom Joueur 1" required>
+      <input type="text" name="player2" placeholder="Nom Joueur 2" required>
+
+      <label for="difficulty">Difficulté :</label>
+      <select name="difficulty" id="difficulty" required>
+        <option value="easy">Facile (6x7)</option>
+        <option value="normal">Normal (6x9)</option>
+        <option value="hard">Difficile (7x8)</option>
+      </select>
+
+      <button type="submit" class="btn">Commencer</button>
+    </form>
+  </div>
+</body>
+</html>
